@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
- 
-const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+const GlobalStyle = createGlobalStyle`
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -23,17 +21,15 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: Roboto;
-	font-style: normal;
-	box-sizing: border-box;
 }
-
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
 	line-height: 1;
+	box-sizing:border-box;
 }
 ol, ul {
 	list-style: none;
@@ -50,5 +46,32 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+input{
+	width: 303px;
+	height: 45px;
+	border: 1px solid #dbdbdb;
+	border-radius: 5px;
+	font-family: 'Lexend Deca', normal;
+    font-weight: 400;
+	font-size: 21px;
+	padding: 11px;
+	color: #dbdbdb;
+	box-sizing:border-box;
+}
+
+button{
+	font-family: 'Lexend Deca', normal;
+	width: 303px;
+	height:45px;
+	background-color: #52B6FF;
+	font-weight: 400;
+	font-size: 21px;
+	line-height: 26px;
+	color: #FFFFFF;
+	border-radius: 5px;
+	border: none;
+
+}
 `
-export default GlobalStyle
+export default GlobalStyle;
