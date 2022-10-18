@@ -19,7 +19,7 @@ export default function LoginPage() {
         }
         const promise = axios.post(`${BASE_URL}/auth/login`, user)
 
-        promise.then("/hoje")
+        promise.then(navigate("/hoje"))
 
         promise.catch(alert("Ops, login e/ou senha incorretos"))
 
