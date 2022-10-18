@@ -1,18 +1,35 @@
+import axios from "axios"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
+import BASE_URL from "../baseUrl"
 import logo from "./logo.png"
 
 export default function LoginPage() {
 
+    const navigate = useNavigate()
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    function login(){
+        const user ={
+            email:email,
+            password:password
+        }
+        const promise = axios.post(`${BASE_URL}/auth/login`, user)
+
+        promise.then("/hoje")
+
+        promise.catch(alert("Ops, login e/ou senha incorretos"))
+
+    }
 
     return (
         <Container>
             <img src={logo} alt="Logo from TrackIt" />
             <LoginForm>
-                <form>
+                <form onSubmit={login}>
                     <input name="email" type="email" placeholder="email" required onChange={e => setEmail(e.target.value)}/>
                     <input name="password" type="password" placeholder="senha" required onChange={e => setPassword(e.target.value)}/>
                     <button type="submit">Entrar</button>
