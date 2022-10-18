@@ -21,7 +21,7 @@ export default function LoginPage() {
 
         promise.then(navigate("/hoje"))
 
-        promise.catch(alert("Ops, login e/ou senha incorretos"))
+        promise.catch(() => alert("Ops, login e/ou senha incorretos"))
 
     }
 
