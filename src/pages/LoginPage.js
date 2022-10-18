@@ -1,15 +1,20 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import logo from "./logo.png"
 
 export default function LoginPage() {
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
     return (
         <Container>
             <img src={logo} alt="Logo from TrackIt" />
             <LoginForm>
                 <form>
-                    <input name="email" type="email" placeholder="email" required/>
-                    <input name="password" type="password" placeholder="senha" required/>
+                    <input name="email" type="email" placeholder="email" required onChange={e => setEmail(e.target.value)}/>
+                    <input name="password" type="password" placeholder="senha" required onChange={e => setPassword(e.target.value)}/>
                     <button type="submit">Entrar</button>
                 </form>
             </LoginForm>
