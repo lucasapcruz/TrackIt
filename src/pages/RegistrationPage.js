@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import BASE_URL from "../baseUrl"
-import logo from "./logo.png"
+import logo from "../images/logo.png"
 
 export default function RegistrationPage() {
 

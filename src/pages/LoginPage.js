@@ -1,27 +1,38 @@
 import axios from "axios"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import BASE_URL from "../baseUrl"
-import logo from "./logo.png"
+import { AuthContext } from "../Context"
+import logo from "../images/logo.png"
 
 export default function LoginPage() {
+
+    const {currentUser, setCurrentUser} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    function login(){
+    function login(event){
+        event.preventDefault()
+
         const user ={
             email:email,
             password:password
         }
         const promise = axios.post(`${BASE_URL}/auth/login`, user)
 
-        promise.then(() => navigate("/hoje"))
+        promise.then((response) => {
+            console.log(response)
+            setCurrentUser(response.data)
+            navigate("/hoje")
+        })
 
-        promise.catch(() => alert("Ops, login e/ou senha incorretos"))
+        promise.catch((response) => {
+            alert("Ops, login e/ou senha incorretos")
+        })
 
     }
 
