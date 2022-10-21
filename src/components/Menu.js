@@ -5,9 +5,12 @@ import {
     buildStyles
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Progress } from "../Context";
 
-export default function Menu({progress}) {
+export default function Menu() {
+
+    const {percentage, setPercentage} = useContext(Progress)
 
     return (
         <Container>
@@ -16,7 +19,7 @@ export default function Menu({progress}) {
             </Link>
             <ProgressCircleContainer>
                 <CircularProgressbar
-                    value={progress}
+                    value={percentage}
                     text={"Hoje"}
                     background
                     backgroundPadding={6}

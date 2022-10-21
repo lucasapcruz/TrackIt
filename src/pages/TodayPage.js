@@ -35,7 +35,9 @@ export default function TodayPage() {
             const nrDone = activitiesDone.length
             const nrNotDone = response.data.length
 
-            setPercentage((nrDone/nrNotDone)*100)
+            const p = nrNotDone !== 0? (nrDone/nrNotDone)*100: 0
+
+            setPercentage(p)
         })
 
         promise.catch((response) => {
@@ -49,7 +51,7 @@ export default function TodayPage() {
                 <Header image={image} />
                 <DailyTracker
                     dailyHabits={dailyHabits} config={config} setReload={setReload}/>
-                <Menu progress={percentage}/>
+                <Menu/>
         </>
     )
 }
